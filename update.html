@@ -4,63 +4,54 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>update</title>
+   <title>Update Profile</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
-
 </head>
 <body>
 
 <header class="header">
-   
    <section class="flex">
-
-      <a href="home.html" class="logo" > <i class="fa-solid fa-book"></i><span> Elearning</span></a>
-
+      <a href="home.html" class="logo"> 
+         <i class="fa-solid fa-book"></i><span> Elearning</span>
+      </a>
       <form action="search.html" method="post" class="search-form">
          <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
          <button type="submit" class="fas fa-search"></button>
       </form>
-
       <div class="icons">
          <div id="menu-btn" class="fas fa-bars"></div>
          <div id="search-btn" class="fas fa-search"></div>
          <div id="user-btn" class="fas fa-user"></div>
          <div id="toggle-btn" class="fas fa-sun"></div>
       </div>
-
       <div class="profile">
-         <img src="images/pic-1.jpg" class="image" alt="">
-         <h3 class="name">shaikh anas</h3>
-         <p class="role">studen</p>
-         <a href="profile.html" class="btn">view profile</a>
-         <div class="flex-btn">
-            <a href="login.html" class="option-btn">login</a>
-            <a href="register.html" class="option-btn">register</a>
+         <h3 id="user-name" class="name">Guest</h3>
+         <p id="user-role" class="role">Not logged in</p>
+         <a id="view-profile-btn" href="profile.html" class="btn">View Profile</a>
+         <div id="auth-btns" class="flex-btn">
+            <a id="login-btn" href="login.html" class="option-btn">Login</a>
+            <a id="register-btn" href="register.html" class="option-btn">Register</a>
          </div>
+         <button id="logout-button" class="btn" style="display: none;" onclick="handleLogout()">Logout</button>
       </div>
-
    </section>
-
 </header>   
 
 <div class="side-bar">
-
    <div id="close-btn">
       <i class="fas fa-times"></i>
    </div>
-
    <div class="profile">
-      <img src="images/pic-1.jpg" class="image" alt="">
-      <h3 class="name">shaikh anas</h3>
-      <p class="role">studen</p>
-      <a href="profile.html" class="btn">view profile</a>
+      <img id="profile-img-side" src="images/pic-1.jpg" class="image" alt="Profile Image">
+      <h3 id="user-name" class="name">Guest</h3>
+      <p id="user-role" class="role">Not logged in</p>
+      <a href="register.html" class="btn">Register</a>
    </div>
-
    <nav class="navbar">
       <a href="home.html"><i class="fas fa-home"></i><span>home</span></a>
       <a href="about.html"><i class="fas fa-question"></i><span>about</span></a>
@@ -68,51 +59,35 @@
       <a href="teachers.html"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
       <a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>
    </nav>
-
 </div>
 
 <section class="form-container">
-
-   <form action="" method="post" enctype="multipart/form-data">
-      <h3>update profile</h3>
-      <p>update name</p>
-      <input type="text" name="name" placeholder="shaikh anas" maxlength="50" class="box">
-      <p>previous password</p>
-      <input type="password" name="old_pass" placeholder="enter your old password" maxlength="20" class="box">
-      <p>new password</p>
-      <input type="password" name="new_pass" placeholder="enter your old password" maxlength="20" class="box">
-      <p>confirm password</p>
-      <input type="password" name="c_pass" placeholder="confirm your new password" maxlength="20" class="box">
-      <p>update pic</p>
-      <input type="file" accept="image/*" class="box">
-      <input type="submit" value="update profile" name="submit" class="btn">
+   <form id="updateForm" action="" method="post">
+      <h3>Update Profile</h3>
+      <p>Your Name <span>*</span></p>
+      <input type="text" name="name" id="name" placeholder="Enter your name" required maxlength="50" class="box">
+      
+      <p>Your Phone Number <span>*</span></p>
+      <input type="text" name="phone" id="phone" placeholder="Enter your phone number" required maxlength="15" class="box">
+      
+      <p>Your New Password <span>*</span></p>
+      <input type="password" name="password" id="password" placeholder="Enter your new password" required maxlength="20" class="box">
+      
+      <p>Confirm New Password <span>*</span></p>
+      <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm your new password" required maxlength="20" class="box">
+      
+      <input type="submit" value="Update Profile" class="btn">
    </form>
-
 </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <footer class="footer">
-
-   &copy; copyright @ 2022 by <span>lâm đẹp trai</span>
-
+   &copy; copyright @ 2022 by <span>lâm đẹp trai</span> 
 </footer>
 
-<!-- custom js file link  -->
+<!-- custom js file link -->
 <script src="js/script.js"></script>
-
-   
+<script src="js/auth.js"></script>
+<script src="js/update.js"></script>
+<!-- <script src="js/api.js"></script> -->
 </body>
 </html>

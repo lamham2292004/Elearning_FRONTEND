@@ -1,48 +1,66 @@
-document.getElementById("login-btn").addEventListener("click", async function () {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+document.getElementById('login-btn').addEventListener('click', function () {
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
 
-    // Kiểm tra nếu có bất kỳ trường nào bị bỏ trống
     if (!email || !password) {
-        alert("Please fill in both fields.");
+        showErrorMessage("Please fill in both email and password!");
         return;
     }
 
-    const loginData = { email: email, password: password };
+    if (!isValidEmail(email)) {
+        showErrorMessage("Please enter a valid email address!");
+        return;
+    }
 
-    try {
-        // Gửi yêu cầu đăng nhập tới API
-        const response = await fetch('http://localhost:8080/Elearning/users', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(loginData),
-        });
+    const data = { email, password };
 
-        // Kiểm tra nếu yêu cầu trả về thành công
-        if (response.ok) {
-            const data = await response.json();
-            console.log("Login successful:", data);
+    fetch('http://localhost:8080/Elearning/auth/token', {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            return response.json().then(err => { throw new Error(err.message); });
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data && data.result && data.result.token && data.result.userId) {
+            localStorage.setItem('token', data.result.token); // Lưu token vào localStorage
+            localStorage.setItem('userId', data.result.userId); // Lưu userId vào localStorage
+            localStorage.setItem('role', data.result.role); //
+            localStorage.setItem('email', email); // Lưu email vào localStorage
 
-            // Kiểm tra nếu API trả về token
-            if (data.token) {
-                // Lưu token vào localStorage và điều hướng đến trang home
-                localStorage.setItem('authToken', data.token);
-                alert("Login successful!");
-                window.location.href = "home.html"; // Điều hướng sau khi đăng nhập thành công
+            // Kiểm tra vai trò của người dùng và chuyển hướng đến trang quản trị nếu là Admin
+            if (data.result.roles.includes('ADMIN')) {
+                window.location.href = 'admin.html';
             } else {
-                // Nếu không có token, hiển thị thông báo lỗi
-                alert("Login failed: No token returned from server.");
+                window.location.href = 'home.html';
             }
         } else {
-            // Nếu response không phải là thành công, lấy thông tin lỗi từ API
-            const errorData = await response.json();
-            alert("Login failed: " + (errorData.message || "Invalid credentials"));
+            showErrorMessage("Thông tin đăng nhập không hợp lệ hoặc mã thông báo không được cung cấp.");
         }
-    } catch (error) {
-        // Bắt lỗi nếu không thể kết nối với server
+    })
+    .catch(error => {
         console.error("Error during login:", error);
-        alert("Cannot connect to the server. Please try again later.");
-    }
+        if (error.message === "Email không tồn tại") {
+            showErrorMessage("Email không tồn tại.");
+        } else if (error.message === "Mật khẩu sai") {
+            showErrorMessage("Mật khẩu sai.");
+        } else {
+            showErrorMessage("Đã xảy ra lỗi trong quá trình đăng nhập. Vui lòng thử lại.");
+        }
+    });
 });
+
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function showErrorMessage(message) {
+    const errorMessage = document.getElementById('error-message');
+    errorMessage.textContent = message;
+}

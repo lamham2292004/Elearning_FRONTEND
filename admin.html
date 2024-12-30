@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <!-- Chart.js CDN link -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="header">
+        <section class="flex">
+            <a href="admin.html" class="logo"> 
+                <i class="fa-solid fa-book"></i><span> Elearning Admin</span>
+            </a>
+            <form action="search.html" method="post" class="search-form">
+                <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+                <button type="submit" class="fas fa-search"></button>
+            </form>
+            <div class="icons">
+                <div id="menu-btn" class="fas fa-bars"></div>
+                <div id="search-btn" class="fas fa-search"></div>
+                <div id="user-btn" class="fas fa-user"></div>
+                <div id="toggle-btn" class="fas fa-sun"></div>
+            </div>
+            <div class="profile">
+                <h3 id="user-name" class="name">Admin</h3>
+                <p id="user-role" class="role">Administrator</p>
+                <button id="logout-button" class="btn" onclick="handleLogout()">Logout</button>
+            </div>
+        </section>
+    </header>
+
+    <div class="side-bar">
+        <div id="close-btn">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="profile">
+            <img id="profile-img-side" src="images/pic-1.jpg" class="image" alt="Profile Image">
+            <h3 id="user-name-side" class="name">Admin</h3>
+            <p id="user-role-side" class="role">Administrator</p>
+        </div>
+        <nav class="navbar">
+            <a href="admin.html"><i class="fas fa-home"></i><span>Dashboard</span></a>
+            <a href="manageUsers.html"><i class="fas fa-users"></i><span>Manage Users</span></a>
+            <a href="manageCourses.html"><i class="fas fa-graduation-cap"></i><span>Manage Courses</span></a>
+            <a href="profile.html"><i class="fas fa-user"></i><span>Profile</span></a>
+            <a href="settings.html"><i class="fas fa-cog"></i><span>Settings</span></a>
+        </nav>
+    </div>
+
+    <section class="admin-section">
+        <h1 class="heading">Dashboard</h1>
+        <div class="dashboard-stats">
+            <div class="stat-item">
+                <i class="fas fa-users"></i>
+                <h3 id="total-users">0</h3>
+                <p>Tổng số người dùng</p>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <h3 id="total-teachers">0</h3>
+                <p>Tổng số giáo viên</p>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-book"></i>
+                <h3 id="total-courses">0</h3>
+                <p>Tổng số bài học</p>
+            </div>
+        </div>
+        <div class="chart-container">
+            <canvas id="dashboardChart"></canvas>
+        </div>
+    </section>
+
+    <footer class="footer">
+        &copy; copyright @ 2022 by <span>lâm đẹp trai</span> 
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

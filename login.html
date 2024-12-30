@@ -34,11 +34,11 @@
       </div>
 
       <div class="profile">
-         <img src="images/pic-1.jpg" class="image" alt="">
-         <h3 class="name">shaikh anas</h3>
-         <p class="role">studen</p>
-         <a href="profile.html" class="btn">view profile</a>
-         <div class="flex-btn">
+         <img id="profile-img" src="images/pic-1.jpg" class="image" alt="">
+         <h3 id="profile-name" class="name">Guest</h3>
+         <p id="profile-role" class="role">Not logged in</p>
+         <a id="view-profile-btn" href="profile.html" class="btn">view profile</a>
+         <div id="auth-btns" class="flex-btn">
             <a href="login.html" class="option-btn">login</a>
             <a href="register.html" class="option-btn">register</a>
          </div>
@@ -55,10 +55,10 @@
    </div>
 
    <div class="profile">
-      <img src="images/pic-1.jpg" class="image" alt="">
-      <h3 class="name">shaikh anas</h3>
-      <p class="role">studen</p>
-      <a href="profile.html" class="btn">view profile</a>
+      <img id="profile-img-side" src="images/pic-1.jpg" class="image" alt="">
+      <h3 id="profile-name-side" class="name">Guest</h3>
+      <p id="profile-role-side" class="role">Not logged in</p>
+      <a href="register.html" class="btn">register</a>
    </div>
 
    <nav class="navbar">
@@ -80,6 +80,7 @@
       <p>your password <span>*</span></p>
       <input type="password"  id="password" name="pass" placeholder="enter your password" required maxlength="20" class="box">
       <button type="button" id="login-btn" class="btn">login now</button>
+      <p id="error-message" class="error-message"></p>
    </form>
 
 </section>
@@ -95,16 +96,16 @@
 
 
 
-
 <footer class="footer">
 
    &copy; copyright @ 2022 by <span>lâm đẹp trai</span> 
-
+ 
 </footer>
 
 <!-- custom js file link  -->
-<script src="js/script.js"></script>
-<script src="js/login.js"></script>
+<script  src="js/script.js"></script>
+<script  src="js/login.js"></script>
+<script  src="js/api.js"></script>
 
    
 </body>

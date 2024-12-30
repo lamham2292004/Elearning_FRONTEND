@@ -45,6 +45,8 @@ html::-webkit-scrollbar-thumb{
 body{
    background-color: var(--light-bg);
    padding-left: 30rem;
+   flex-direction: column;
+   min-height: 100vh; 
 }
 
 body.dark{
@@ -1101,10 +1103,30 @@ section{
    color: var(--black);
 }
 
+.user-profile .info .user .profile-info {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   gap: 1rem;
+   margin-top: 1rem;
+   margin-left: 45rem;
+   margin-right: auto;
+   
+   
+}
+
 .user-profile .info .user p{
-   font-size: 1.7rem;
+   font-size: 2rem;
    color: var(--light-color);
    padding: .3rem 0;
+}
+
+.user-profile .info .user .profile-info label {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   font-size: 1.6rem;
+   color: var(--black);
 }
 
 .user-profile .info .box-container{
@@ -1272,7 +1294,11 @@ section{
    width: 100%;
    margin: 1rem 0;
 }
-
+.form-container form .error-message{
+   color: red;
+   font-size: 1.8rem;
+   margin-top: 1rem;
+}
 
 
 
@@ -1289,7 +1315,6 @@ section{
    color:var(--black);
    margin-top: 1rem;
    z-index: 1000;
-   /* padding-bottom: 9.5rem; */
 }
 
 .footer span{
@@ -1374,3 +1399,98 @@ section{
    }
 
 }
+
+/* Thêm các quy tắc CSS cho trang dashboard */
+.admin-section {
+   flex: 1;
+   padding: 40px; /* Tăng khoảng cách padding */
+}
+
+.dashboard-stats {
+   display: flex;
+   justify-content: space-around;
+   margin-top: 40px; /* Tăng khoảng cách margin-top */
+}
+
+.stat-item {
+   text-align: center;
+   padding: 30px; /* Tăng khoảng cách padding */
+   border-radius: 10px;
+   background-color: #f9f9f9;
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+   flex: 1; /* Đảm bảo các phần tử chiếm đều không gian */
+   margin: 0 10px; /* Tăng khoảng cách giữa các phần tử */
+}
+
+.stat-item i {
+   font-size: 3rem; /* Tăng kích thước biểu tượng */
+   color: #4e73df;
+   margin-bottom: 20px; /* Tăng khoảng cách margin-bottom */
+}
+
+.stat-item h3 {
+   font-size: 2.5rem; /* Tăng kích thước chữ */
+   margin-bottom: 10px;
+}
+
+.stat-item p {
+   font-size: 2rem; /* Tăng kích thước chữ */
+   color: #666;
+}
+
+.chart-container {
+   margin-top: 40px;
+   padding: 30px; /* Tăng khoảng cách padding */
+   background-color: #fff;
+   border-radius: 10px;
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Thêm các quy tắc CSS cho trang quản lý người dùng */
+.admin-section .box-container {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 20px;
+}
+
+.admin-section .user-item {
+   flex: 1 1 calc(33.333% - 20px);
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+   padding: 20px;
+   border-radius: 10px;
+   background-color: #fff;
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-section .user-item:hover {
+   transform: translateY(-10px);
+   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.admin-section .user-info {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   margin-bottom: 10px;
+   font-size: 2rem;
+}
+
+.admin-section .user-info .user-field {
+   display: flex;
+   justify-content: space-between;
+}
+
+.admin-section .delete-btn {
+   background-color: #ff4d4d;
+   color: #fff;
+   border: none;
+   padding: 10px 20px;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+}
+
+.admin-section .delete-btn:hover {
+   background-color: #ff1a1a;
+}
+

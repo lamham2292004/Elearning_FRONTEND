@@ -34,11 +34,11 @@
       </div>
 
       <div class="profile">
-         <img src="images/pic-1.jpg" class="image" alt="">
-         <h3 class="name">shaikh anas</h3>
-         <p class="role">studen</p>
-         <a href="profile.html" class="btn">view profile</a>
-         <div class="flex-btn">
+         <img id="profile-img" src="images/pic-1.jpg" class="image" alt="">
+         <h3 id="profile-name" class="name">Guest</h3>
+         <p id="profile-role" class="role">Not logged in</p>
+         <a id="view-profile-btn" href="profile.html" class="btn">view profile</a>
+         <div id="auth-btns" class="flex-btn">
             <a href="login.html" class="option-btn">login</a>
             <a href="register.html" class="option-btn">register</a>
          </div>
@@ -55,10 +55,10 @@
    </div>
 
    <div class="profile">
-      <img src="images/pic-1.jpg" class="image" alt="">
-      <h3 class="name">shaikh anas</h3>
-      <p class="role">studen</p>
-      <a href="profile.html" class="btn">view profile</a>
+      <img id="profile-img-side" src="images/pic-1.jpg" class="image" alt="">
+      <h3 id="profile-name-side" class="name">Guest</h3>
+      <p id="profile-role-side" class="role">Not logged in</p>
+      <a href="register.html" class="btn">register</a>
    </div>
 
    <nav class="navbar">
@@ -87,28 +87,14 @@
       <p>Confirm Password <span>*</span></p>
       <input type="password" name="c_pass" id="confirmPassword" placeholder="Confirm your password" required maxlength="20" class="box">
       
-      <p>Select Profile Picture <span>*</span></p>
-      <input type="file" id="profilePic" accept="image/*" required class="box">
+      <p>Your Phone Number <span>*</span></p>
+      <input type="text" name="phone" id="phone" placeholder="Enter your phone number" required maxlength="15" class="box">
       
       <input type="submit" value="Register New" name="submit" class="btn">
   </form>
   
 
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <footer class="footer">
 
@@ -120,6 +106,5 @@
 <script src="js/script.js"></script>
 <script src="js/register.js"></script>
 
-   
 </body>
 </html>
